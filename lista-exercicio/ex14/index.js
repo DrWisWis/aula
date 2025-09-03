@@ -1,5 +1,5 @@
 let acertou = false
-// let n = Math.floor(Math.random() * (10 - 0 + 1) + 0);
+//let n = Math.floor(Math.random() * (10 - 0 + 1) + 0);
 let n = 7
 let chute
 
