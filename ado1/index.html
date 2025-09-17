@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Caça ao Tesouro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="box">
+        <h1>Caça ao Tesouro — Escolha sabiamente!</h1>
+        <p>Você é um aventureiro procurando um tesouro escondido. Em cada etapa, digite a opção mostrada (ex.: "A", "B"
+            ou "C").</p>
+        <p><strong>Atenção:</strong> as respostas não diferenciam maiúsculas/minúsculas.</p>
+        <button id="startBtn">Começar aventura</button>
+        <div id="result" style="margin-top:12px;"></div>
+    </div>
+    <script>
+        function jogar() {
+            // Etapa 1
+            let escolha1 = prompt(
+                "Você está na entrada de uma caverna. Há 3 caminhos:\n" +
+                "A) Túnel iluminado por cristais\n" +
+                "B) Passagem estreita e escura\n" +
+                "C) Uma escada que desce em espiral\n        \nEscolha A, B ou C:"
+            );
+            if (!escolha1) { mostrar("Você saiu da aventura."); return; }
+            escolha1 = escolha1.trim().toUpperCase();
+
+            if (escolha1 === "A") {
+                // Etapa 2a
+                let escolha2 = prompt(
+                    "Os cristais brilham e você encontra um lago com uma pequena ilha.\n" +
+                    "A) Nadar até a ilha\n" +
+                    "B) Procurar uma pértiga para atravessar\n" +
+                    "C) Seguir ao redor do lago\n\nEscolha A, B ou C:"
+                );
+                if (!escolha2) { mostrar("Você parou para observar os cristais e voltou para casa."); return; }
+                escolha2 = escolha2.trim().toUpperCase();
+
+                if (escolha2 === "A") {
+                    // Etapa 3a1
+                    let escolha3 = prompt(
+                        "Ao nadar, algo puxa sua perna! É uma criatura aquática.\n" +
+                        "A) Lutar\n" +
+                        "B) Tentar nadar para a margem\n" +
+                        "C) Segurar a respiração e mergulhar mais profundamente\n\nEscolha A, B ou C:"
+                    );
+                    if (!escolha3) { mostrar("Você ficou paralisado e a criatura te arrastou. Fim."); return; }
+                    escolha3 = escolha3.trim().toUpperCase();
+
+                    if (escolha3 === "B") {
+                        mostrar("Você consegue chegar à margem. Na ilha há um baú antigo — você encontrou o tesouro! Vitória");
+                    } else if (escolha3 === "A") {
+                        mostrar("A criatura era forte demais. Você escapou por pouco, mas sem tesouro. Fim.");
+                    } else {
+                        mostrar("Ao mergulhar, você encontrou uma câmara submersa com o tesouro! Vitória incomum");
+                    }
+
+                } else if (escolha2 === "B") {
+                    // Etapa 3a2
+                    mostrar("Ao buscar uma pértiga você encontra um mapa preso nela — o mapa aponta para outra câmara secreta. Você seguiu o mapa e achou o tesouro. Vitória!");
+                } else {
+                    mostrar("Ao contornar o lago, você é surpreendido por um desabamento. Fim.");
+                }
+
+            } else if (escolha1 === "B") {
+                // Etapa 2b
+                let escolha2b = prompt(
+                    "A passagem é estreita, você escuta vozes ao longe.\n" +
+                    "A) Se esconder e observar\nB) Avançar com cuidado\nC) Gritar e se apresentar\nEscolha A, B ou C:"
+                );
+                if (!escolha2b) { mostrar("Você decidiu voltar pela entrada. Fim."); return; }
+                escolha2b = escolha2b.trim().toUpperCase();
+
+                if (escolha2b === "A") {
+                    mostrar("Você observa um grupo de saqueadores. Eles não te notam. Aproveitando a oportunidade, você segue por um túnel lateral e encontra o tesouro. Vitória discreta!");
+                } else if (escolha2b === "B") {
+                    mostrar("Ao avançar, você ativa uma armadilha. Ficou preso. Fim.");
+                } else {
+                    mostrar("Gritar acordou os saqueadores. Você teve que correr e saiu sem nada. Fim.");
+                }
+
+            } else if (escolha1 === "C") {
+                // Etapa 2c
+                let escolha2c = prompt(
+                    "A escada desce até uma porta trancada com três símbolos.\n" +
+                    "A) Tentar forçar a porta\\nB) Procurar por uma alavanca perto\nC) Voltar para a entrada\nEscolha A, B ou C:"
+                );
+                if (!escolha2c) { mostrar("Você decidiu não descer mais e voltou. Fim."); return; }
+                escolha2c = escolha2c.trim().toUpperCase();
+
+                if (escolha2c === "A") {
+                    mostrar("Ao forçar, um mecanismo dispara e o chão cede. Você cai em uma sala menor onde um enigma protege o tesouro.\n" +
+                        "Sem resolver o enigma, você não o encontra. Fim.");
+                } else if (escolha2c === "B") {
+                    // Etapa 3c2
+                    let escolha3c = prompt(
+                        "Você encontra uma alavanca coberta de musgo.\n" +
+                        "A) Puxar a alavanca\nB) Ignorar e buscar outra pista\nC) Investigar o musgo mais de perto\nEscolha A, B ou C:"
+                    );
+                    
+                    if (!escolha3c) { mostrar("Você hesitou e algo te fez recuar. Fim."); return; }
+                    escolha3c = escolha3c.trim().toUpperCase();
+
+                    if (escolha3c === "A") {
+                        mostrar("Ao puxar a alavanca a porta se abre lentamente. Dentro: o tesouro! Vitória elegante");
+                    } else if (escolha3c === "C") {
+                        mostrar("O musgo escondia um pequeno mecanismo — você o ativa por acidente e uma passagem secreta revela o tesouro. Vitória curiosa!");
+                    } else {
+                        mostrar("Você não encontra nada e perde tempo — quando volta, a porta já está selada permanentemente. Fim.");
+                    }
+
+                } else {
+                    mostrar("Ao voltar pela entrada, você percebe que a caverna está mudando — você decide que aventuras futuras estarão te esperando. Fim.");
+                }
+
+            } else {
+                mostrar("Opção inválida na entrada — a aventura terminou antes de começar. Fim.");
+            }
+        }
+
+        // Resultado
+        function mostrar(texto) {
+            document.getElementById("result").innerText = texto;
+            alert(texto);
+        }
+
+        document.getElementById("startBtn").addEventListener("click", jogar);
+    </script>
+</body>
+
+</html>
