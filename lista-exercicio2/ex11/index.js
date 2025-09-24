@@ -5,7 +5,7 @@ function fatorial(a) {
         resultado *= i
         i--
     }
-    alert(`O fatorial deste numero é ${resultado}`)
+    return alert(`O fatorial deste numero é ${resultado}`)
 }
 
 let num = Number(prompt("Qual o numero que deseja fatoriar? "))
