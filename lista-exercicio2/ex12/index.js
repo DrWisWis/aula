@@ -5,3 +5,5 @@ function areaQuadrado(lado) {
 }
 
 let lado = Number(prompt("qual é o lado do seu quadrado? "))
+
+areaQuadrado(lado)
